@@ -36,9 +36,15 @@ class ButtonCommandExecuteHandler(adsk.core.CommandEventHandler):
             # Retrieve the input value
             topic = result[0]  # Get the first element
 
-            # Example: Perform a YouTube search based on the topic
-            search_url = f"https://www.youtube.com/results?search_query=Fusion+360+{topic}"
-            webbrowser.open(search_url)
+            # Check if the input string is non-empty
+            if topic:
+                # Use the topic in your code logic
+                # Example: Perform a YouTube search based on the topic
+                search_url = f"https://www.youtube.com/results?search_query=Fusion+360+{topic}"
+                webbrowser.open(search_url)
+
+            else:
+                None
             
         except:
             self.show_error_message(self.ui, traceback.format_exc())
